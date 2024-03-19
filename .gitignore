@@ -3,6 +3,11 @@
 
 ## Custom ###
 imports.py
+etc
+include
+lib
+Scripts
+share
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

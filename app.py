@@ -12,7 +12,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 
 import time
 
@@ -180,12 +180,15 @@ if ('vector' in st.session_state) and (st.session_state.valid_key) and ('started
 
     if send_message and user_message:
             st.session_state.messages.append(f"User: {user_message}")
+            st.session_state.chat_hist.append({'user': user_message})
             st.session_state.messages.append(f"_______________________________________________________")
-            #st.markdown('<div class="chat-messages">' + '<br>'.join(reversed(st.session_state.messages)) + '</div>', unsafe_allow_html=True)
 
             response = st.session_state.retrieval_chain.invoke({"input": user_message, "history": st.session_state.chat_hist})
             st.session_state.messages.append(f"ChatGPT: {response['answer']}")
+            st.session_state.chat_hist.append({'agent': response['answer']})
             st.session_state.messages.append(f"_______________________________________________________")
+
+
 
     # Show messages
     st.markdown('<div class="chat-messages">' + '<br><br>'.join(reversed(st.session_state.messages)) + '</div>', unsafe_allow_html=True)
