@@ -2,8 +2,14 @@
 Simple PDF QA using RAG on documents from IFRS Canoas.
 
 # Use
-Put your OpenAI API key on 'OPENAI_KEY' variable, then put unprocessed documents(PDF) on ./data/unprocessed_data and run the code. It will process the document and save it in a vector store.
-Documents only need to be processed once.
+### Default documents
+Go to run_app.ipynb, select your venv's kernel and run the code.
+Put your OpenAI API key in the sidebar variable and then validate your api.
+Once validated, you can chat with the model.
 
-Put your question in the last cell, on 'msg' variable.
-The model is aware of chat history.
+### Your documents
+Put unprocessed documents(PDF) on ./data/unprocessed_data. Documents only need to be processed once.
+Go to run_app.ipynb, select your venv's kernel and run the code.
+Put your OpenAI API key in the sidebar variable and then validate your api.
+Your PDF will be processed for better understanding of the LLM. Documents only need to be processed once. (can take a few minutes depending on the document's size)
+After that, you can talk to the model.
