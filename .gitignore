@@ -8,6 +8,7 @@ include
 lib
 Scripts
 share
+pyvenv.cfg
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
